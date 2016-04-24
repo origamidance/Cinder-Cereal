@@ -32,6 +32,8 @@
 #include "cinder/Rect.h"
 #include "cinder/Filesystem.h"
 
+namespace cereal {
+
 // glm vector serialization
 template<class Archive> void serialize( Archive & archive, ci::vec2 &v ) { archive( v.x, v.y ); }
 template<class Archive> void serialize( Archive & archive, ci::vec3 &v ) { archive( v.x, v.y, v.z ); }
@@ -179,4 +181,6 @@ void load( Archive & archive, ci::fs::path &p )
 	std::string pstring;
 	archive( pstring );
 	p = pstring;
+}
+
 }
