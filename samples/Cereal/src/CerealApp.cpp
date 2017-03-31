@@ -16,6 +16,7 @@ class CerealApp : public App {
   public:
 	void setup() override
 	{
+    std::cout<<"seems good";
 		// create a JSON archive that output to the console
 		cereal::JSONOutputArchive archive( console() );
 		
@@ -29,9 +30,10 @@ class CerealApp : public App {
 
 		// serialize
 		archive( vec, arr, CEREAL_NVP(vecOfVec3), CEREAL_NVP(camera), getWindowBounds(), getWindowPos(), p, args );
-		
+
+    std::cout<<"seems good";
 		// quit the app
-		quit();
+		// quit();
 	}
 };
 
