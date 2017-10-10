@@ -32,9 +32,27 @@
 #include "cinder/Rect.h"
 #include "cinder/Filesystem.h"
 
+#if ! defined( CINDER_CEREAL_NVP )
+#define CINDER_CEREAL_NVP 1
+#endif
+
 namespace cereal {
 
 // glm vector serialization
+#if CINDER_CEREAL_NVP
+template<class Archive> void serialize( Archive & archive, ci::vec2 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ) ); }
+template<class Archive> void serialize( Archive & archive, ci::vec3 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ), cereal::make_nvp( "z", v.z ) ); }
+template<class Archive> void serialize( Archive & archive, ci::vec4 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ), cereal::make_nvp( "z", v.z ), cereal::make_nvp( "w", v.w ) ); }
+template<class Archive> void serialize( Archive & archive, ci::ivec2 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ) ); }
+template<class Archive> void serialize( Archive & archive, ci::ivec3 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ), cereal::make_nvp( "z", v.z ) ); }
+template<class Archive> void serialize( Archive & archive, ci::ivec4 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ), cereal::make_nvp( "z", v.z ), cereal::make_nvp( "w", v.w ) ); }
+template<class Archive> void serialize( Archive & archive, ci::uvec2 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ) ); }
+template<class Archive> void serialize( Archive & archive, ci::uvec3 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ), cereal::make_nvp( "z", v.z ) ); }
+template<class Archive> void serialize( Archive & archive, ci::uvec4 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ), cereal::make_nvp( "z", v.z ), cereal::make_nvp( "w", v.w ) ); }
+template<class Archive> void serialize( Archive & archive, ci::dvec2 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ) ); }
+template<class Archive> void serialize( Archive & archive, ci::dvec3 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ), cereal::make_nvp( "z", v.z ) ); }
+template<class Archive> void serialize( Archive & archive, ci::dvec4 &v ) { archive( cereal::make_nvp( "x", v.x ), cereal::make_nvp( "y", v.y ), cereal::make_nvp( "z", v.z ), cereal::make_nvp( "w", v.w ) ); }
+#else 
 template<class Archive> void serialize( Archive & archive, ci::vec2 &v ) { archive( v.x, v.y ); }
 template<class Archive> void serialize( Archive & archive, ci::vec3 &v ) { archive( v.x, v.y, v.z ); }
 template<class Archive> void serialize( Archive & archive, ci::vec4 &v ) { archive( v.x, v.y, v.z, v.w ); }
@@ -47,13 +65,14 @@ template<class Archive> void serialize( Archive & archive, ci::uvec4 &v ) { arch
 template<class Archive> void serialize( Archive & archive, ci::dvec2 &v ) { archive( v.x, v.y ); }
 template<class Archive> void serialize( Archive & archive, ci::dvec3 &v ) { archive( v.x, v.y, v.z ); }
 template<class Archive> void serialize( Archive & archive, ci::dvec4 &v ) { archive( v.x, v.y, v.z, v.w ); }
+#endif
 
 // glm matrices serialization
-template<class Archive> void serialize( Archive & archive, ci::mat2 &m ) { archive( m[0], m[1], m[2], m[3] ); }
-template<class Archive> void serialize( Archive & archive, ci::dmat2 &m ) { archive( m[0], m[1], m[2], m[3] ); }
-template<class Archive> void serialize( Archive & archive, ci::mat3 &m ) { archive( m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8] ); }
-template<class Archive> void serialize( Archive & archive, ci::mat4 &m ) { archive( m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9], m[10], m[11], m[12], m[13], m[14], m[15] ); }
-template<class Archive> void serialize( Archive & archive, ci::dmat4 &m ) { archive( m[0], m[1], m[2], m[3], m[4], m[5], m[6], m[7], m[8], m[9], m[10], m[11], m[12], m[13], m[14], m[15] ); }
+template<class Archive> void serialize( Archive & archive, ci::mat2 &m ) { archive( m[0], m[1] ); }
+template<class Archive> void serialize( Archive & archive, ci::dmat2 &m ) { archive( m[0], m[1] ); }
+template<class Archive> void serialize( Archive & archive, ci::mat3 &m ) { archive( m[0], m[1], m[2] ); }
+template<class Archive> void serialize( Archive & archive, ci::mat4 &m ) { archive( m[0], m[1], m[2], m[3] ); }
+template<class Archive> void serialize( Archive & archive, ci::dmat4 &m ) { archive( m[0], m[1], m[2], m[3] ); }
 
 // glm quaternions serialization
 template<class Archive> void serialize( Archive & archive, ci::quat &q ) { archive( q.x, q.y, q.z, q.w ); }
@@ -74,10 +93,17 @@ void load( Archive & archive, ci::Area &area )
 }
 
 // Color
+#if CINDER_CEREAL_NVP
+template<class Archive> void serialize( Archive & archive, ci::Color &c ) { archive( cereal::make_nvp( "r", c.r ), cereal::make_nvp( "g", c.g ), cereal::make_nvp( "b", c.b ) ); }
+template<class Archive> void serialize( Archive & archive, ci::Color8u &c ) { archive(cereal::make_nvp( "r", c.r ), cereal::make_nvp( "g", c.g ), cereal::make_nvp( "b", c.b ) ); }
+template<class Archive> void serialize( Archive & archive, ci::ColorA &c ) { archive( cereal::make_nvp( "r", c.r ), cereal::make_nvp( "g", c.g ), cereal::make_nvp( "b", c.b ), cereal::make_nvp( "a", c.a ) ); }
+template<class Archive> void serialize( Archive & archive, ci::ColorA8u &c ) { archive( cereal::make_nvp( "r", c.r ), cereal::make_nvp( "g", c.g ), cereal::make_nvp( "b", c.b ), cereal::make_nvp( "a", c.a ) ); }
+#else
 template<class Archive> void serialize( Archive & archive, ci::Color &c ) { archive( c.r, c.g, c.b ); }
 template<class Archive> void serialize( Archive & archive, ci::Color8u &c ) { archive( c.r, c.g, c.b ); }
 template<class Archive> void serialize( Archive & archive, ci::ColorA &c ) { archive( c.r, c.g, c.b, c.a ); }
 template<class Archive> void serialize( Archive & archive, ci::ColorA8u &c ) { archive( c.r, c.g, c.b, c.a ); }
+#endif
 
 // Rect
 template<class Archive>
