@@ -75,15 +75,28 @@ template<class Archive> void serialize( Archive & archive, ci::mat4 &m ) { archi
 template<class Archive> void serialize( Archive & archive, ci::dmat4 &m ) { archive( m[0], m[1], m[2], m[3] ); }
 
 // glm quaternions serialization
+#if CINDER_CEREAL_NVP
+template<class Archive> void serialize( Archive & archive, ci::quat &q ) { archive( cereal::make_nvp( "x", q.x ), cereal::make_nvp( "y", q.y ), cereal::make_nvp( "z", q.z ), cereal::make_nvp( "z", q.w ) ); }
+template<class Archive> void serialize( Archive & archive, ci::dquat &q ) { archive( cereal::make_nvp( "x", q.x ), cereal::make_nvp( "y", q.y ), cereal::make_nvp( "z", q.z ), cereal::make_nvp( "z", q.w ) ); }
+#else
 template<class Archive> void serialize( Archive & archive, ci::quat &q ) { archive( q.x, q.y, q.z, q.w ); }
 template<class Archive> void serialize( Archive & archive, ci::dquat &q ) { archive( q.x, q.y, q.z, q.w ); }
+#endif
 
 // Area
+#if CINDER_CEREAL_NVP
+template<class Archive>
+void save( Archive & archive, const ci::Area &area )
+{
+	archive( cereal::make_nvp( "x1", area.getX1() ), cereal::make_nvp( "y1", area.getY1() ), cereal::make_nvp( "x2", area.getX2() ), cereal::make_nvp( "y2", area.getY2() ) );
+}
+#else
 template<class Archive>
 void save( Archive & archive, const ci::Area &area )
 {
 	archive( area.getX1(), area.getY1(), area.getX2(), area.getY2() );
 }
+#endif
 template<class Archive>
 void load( Archive & archive, ci::Area &area )
 {
@@ -106,11 +119,19 @@ template<class Archive> void serialize( Archive & archive, ci::ColorA8u &c ) { a
 #endif
 
 // Rect
+#if CINDER_CEREAL_NVP
+template<class Archive>
+void save( Archive & archive, const ci::Rectf &rect )
+{
+	archive( cereal::make_nvp( "x1", rect.getX1() ), cereal::make_nvp( "y1", rect.getY1() ), cereal::make_nvp( "x2", rect.getX2() ), cereal::make_nvp( "y2", rect.getY2() ) );
+}
+#else
 template<class Archive>
 void save( Archive & archive, const ci::Rectf &rect )
 {
 	archive( rect.getX1(), rect.getY1(), rect.getX2(), rect.getY2() );
 }
+#endif
 template<class Archive>
 void load( Archive & archive, ci::Rectf &rect )
 {
@@ -118,11 +139,19 @@ void load( Archive & archive, ci::Rectf &rect )
 	archive( x1, y1, x2, y2 );
 	rect.set( x1, y1, x2, y2 );
 }
+#if CINDER_CEREAL_NVP
+template<class Archive>
+void save( Archive & archive, const ci::Rectd &rect )
+{
+	archive( cereal::make_nvp( "x1", rect.getX1() ), cereal::make_nvp( "y1", rect.getY1() ), cereal::make_nvp( "x2", rect.getX2() ), cereal::make_nvp( "y2", rect.getY2() ) );
+}
+#else
 template<class Archive>
 void save( Archive & archive, const ci::Rectd &rect )
 {
 	archive( rect.getX1(), rect.getY1(), rect.getX2(), rect.getY2() );
 }
+#endif
 template<class Archive>
 void load( Archive & archive, ci::Rectd &rect )
 {
@@ -132,11 +161,19 @@ void load( Archive & archive, ci::Rectd &rect )
 }
 
 // Camera
+#if CINDER_CEREAL_NVP
+template<class Archive>
+void save( Archive & archive, const ci::Camera &cam )
+{
+	archive( cereal::make_nvp( "eye_point", cam.getEyePoint() ), cereal::make_nvp( "orientation", cam.getOrientation() ), cereal::make_nvp( "fov", cam.getFov() ), cereal::make_nvp( "aspect_ratio", cam.getAspectRatio() ), cereal::make_nvp( "near_clip", cam.getNearClip() ), cereal::make_nvp( "far_clip", cam.getFarClip() ), cereal::make_nvp( "pivot_distance", cam.getPivotDistance() ) );
+}
+#else
 template<class Archive>
 void save( Archive & archive, const ci::Camera &cam )
 {
 	archive( cam.getEyePoint(), cam.getOrientation(), cam.getFov(), cam.getAspectRatio(), cam.getNearClip(), cam.getFarClip(), cam.getPivotDistance() );
 }
+#endif
 template<class Archive>
 void load( Archive & archive, ci::Camera &cam )
 {
@@ -153,11 +190,19 @@ void load( Archive & archive, ci::Camera &cam )
 	cam.setPivotDistance( pivotDist );
 }
 // CameraPersp
+#if CINDER_CEREAL_NVP
+template<class Archive>
+void save( Archive & archive, const ci::CameraPersp &cam )
+{
+	archive( cereal::make_nvp( "eye_point", cam.getEyePoint() ), cereal::make_nvp( "orientation", cam.getOrientation() ), cereal::make_nvp( "fov", cam.getFov() ), cereal::make_nvp( "aspect_ratio", cam.getAspectRatio() ), cereal::make_nvp( "near_clip", cam.getNearClip() ), cereal::make_nvp( "far_clip", cam.getFarClip() ), cereal::make_nvp( "pivot_distance", cam.getPivotDistance() ), cereal::make_nvp( "lens_shift", cam.getLensShift() ) );
+}
+#else
 template<class Archive>
 void save( Archive & archive, const ci::CameraPersp &cam )
 {
 	archive( cam.getEyePoint(), cam.getOrientation(), cam.getFov(), cam.getAspectRatio(), cam.getNearClip(), cam.getFarClip(), cam.getPivotDistance(), cam.getLensShift() );
 }
+#endif
 template<class Archive>
 void load( Archive & archive, ci::CameraPersp &cam )
 {
@@ -173,11 +218,19 @@ void load( Archive & archive, ci::CameraPersp &cam )
 	cam.setLensShift( lensShift );
 }
 // CameraOrtho
+#if CINDER_CEREAL_NVP
+template<class Archive>
+void save( Archive & archive, const ci::CameraStereo &cam )
+{
+	archive( cereal::make_nvp( "eye_point", cam.getEyePoint() ), cereal::make_nvp( "orientation", cam.getOrientation() ), cereal::make_nvp( "fov", cam.getFov() ), cereal::make_nvp( "aspect_ratio", cam.getAspectRatio() ), cereal::make_nvp( "near_clip", cam.getNearClip() ), cereal::make_nvp( "far_clip", cam.getFarClip() ), cereal::make_nvp( "pivot_distance", cam.getPivotDistance() ), cereal::make_nvp( "lens_shift", cam.getLensShift() ), cereal::make_nvp( "convergence", cam.getConvergence() ), cereal::make_nvp( "eye_separation", cam.getEyeSeparation() ) );
+}
+#else
 template<class Archive>
 void save( Archive & archive, const ci::CameraStereo &cam )
 {
 	archive( cam.getEyePoint(), cam.getOrientation(), cam.getFov(), cam.getAspectRatio(), cam.getNearClip(), cam.getFarClip(), cam.getPivotDistance(), cam.getLensShift(), cam.getConvergence(), cam.getEyeSeparation() );
 }
+#endif
 template<class Archive>
 void load( Archive & archive, ci::CameraStereo &cam )
 {
