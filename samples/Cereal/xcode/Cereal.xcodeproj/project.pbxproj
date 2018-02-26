@@ -18,11 +18,11 @@
 		00B9955B1B128DF400A5C623 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995591B128DF400A5C623 /* IOSurface.framework */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		71065AE1F5D043AABBFAA26F /* CinderCereal.h in Headers */ = {isa = PBXBuildFile; fileRef = 571993BACB2941DE82E62C94 /* CinderCereal.h */; };
-		114FE2EED441463096D4766A /* Cereal_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 003BF310B92E4F5DBFDF084C /* Cereal_Prefix.pch */; };
-		65F95E6AA7FE480B95A126C2 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9FBCFDEF55C04D508C74A916 /* CinderApp.icns */; };
-		5E8AB2061E574F8C980333FF /* Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = E98F5B027BE74779928C77AF /* Resources.h */; };
-		938B2FE89C3B4466A6883FC6 /* CerealApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4B5A66C54064017A8E9EA29 /* CerealApp.cpp */; };
+		CF70712A688E4F1C83D882FE /* CinderCereal.h in Headers */ = {isa = PBXBuildFile; fileRef = 81911DC5DC104203B70D152F /* CinderCereal.h */; };
+		426814AB1B23483C91A0A2BF /* Cereal_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = EDF81046013F415AB4C53DC3 /* Cereal_Prefix.pch */; };
+		A26B82CE315945D19897084F /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = F08A5898FDD849039BD716BD /* CinderApp.icns */; };
+		B228AE992BB04ED7B5DE402F /* Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = 66551C7AD8B943698CCD0840 /* Resources.h */; };
+		3F14914593C24A2DAAE097FF /* CerealApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76E8CD9E2C11402FA421C233 /* CerealApp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +40,12 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		8D1107320486CEB800E47090 /* Cereal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cereal.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4B5A66C54064017A8E9EA29 /* CerealApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../src/CerealApp.cpp; sourceTree = "<group>"; name = CerealApp.cpp; };
-		E98F5B027BE74779928C77AF /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../include/Resources.h; sourceTree = "<group>"; name = Resources.h; };
-		9FBCFDEF55C04D508C74A916 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; name = CinderApp.icns; };
-		7CF9220021D44887A7F524A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; name = Info.plist; };
-		003BF310B92E4F5DBFDF084C /* Cereal_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Cereal_Prefix.pch; sourceTree = "<group>"; name = Cereal_Prefix.pch; };
-		571993BACB2941DE82E62C94 /* CinderCereal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../include/CinderCereal.h; sourceTree = "<group>"; name = CinderCereal.h; };
+		76E8CD9E2C11402FA421C233 /* CerealApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../src/CerealApp.cpp; sourceTree = "<group>"; name = CerealApp.cpp; };
+		66551C7AD8B943698CCD0840 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../include/Resources.h; sourceTree = "<group>"; name = Resources.h; };
+		F08A5898FDD849039BD716BD /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; name = CinderApp.icns; };
+		6AED331BD5384AFFBF158DA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; name = Info.plist; };
+		EDF81046013F415AB4C53DC3 /* Cereal_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Cereal_Prefix.pch; sourceTree = "<group>"; name = Cereal_Prefix.pch; };
+		81911DC5DC104203B70D152F /* CinderCereal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../../../include/CinderCereal.h; sourceTree = "<group>"; name = CinderCereal.h; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C4B5A66C54064017A8E9EA29 /* CerealApp.cpp */,
+				76E8CD9E2C11402FA421C233 /* CerealApp.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -126,18 +126,18 @@
 			name = Cereal;
 			sourceTree = "<group>";
 		};
-		68D11149CB524B1C84CAEC6E /* include */ = {
+		E57902A1ECBA42C3800EA1BD /* include */ = {
 			isa = PBXGroup;
 			children = (
-				571993BACB2941DE82E62C94 /* CinderCereal.h */,
+				81911DC5DC104203B70D152F /* CinderCereal.h */,
 			);
 			name = include;
 			sourceTree = "<group>";
 		};
-		175CB200524F4632A0097EFD /* Cinder-Cereal */ = {
+		39AA6BF569164F32A79C4942 /* Cinder-Cereal */ = {
 			isa = PBXGroup;
 			children = (
-				68D11149CB524B1C84CAEC6E /* include */,
+				E57902A1ECBA42C3800EA1BD /* include */,
 			);
 			name = "Cinder-Cereal";
 			sourceTree = "<group>";
@@ -145,7 +145,7 @@
 		01B97315FEAEA392516A2CEA /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				175CB200524F4632A0097EFD /* Cinder-Cereal */,
+				39AA6BF569164F32A79C4942 /* Cinder-Cereal */,
 			);
 			name = Blocks;
 			sourceTree = "<group>";
@@ -153,8 +153,8 @@
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				E98F5B027BE74779928C77AF /* Resources.h */,
-				003BF310B92E4F5DBFDF084C /* Cereal_Prefix.pch */,
+				66551C7AD8B943698CCD0840 /* Resources.h */,
+				EDF81046013F415AB4C53DC3 /* Cereal_Prefix.pch */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -162,8 +162,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9FBCFDEF55C04D508C74A916 /* CinderApp.icns */,
-				7CF9220021D44887A7F524A5 /* Info.plist */,
+				F08A5898FDD849039BD716BD /* CinderApp.icns */,
+				6AED331BD5384AFFBF158DA3 /* Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F95E6AA7FE480B95A126C2 /* CinderApp.icns in Resources */,
+				A26B82CE315945D19897084F /* CinderApp.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				938B2FE89C3B4466A6883FC6 /* CerealApp.cpp in Sources */,
+				3F14914593C24A2DAAE097FF /* CerealApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +263,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder_d.a\"";
+				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/macosx/$(CONFIGURATION)/libcinder.a\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Cereal;
 				SYMROOT = ./build;
@@ -290,7 +290,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder.a\"";
+				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/macosx/$(CONFIGURATION)/libcinder.a\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libcinder.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Cereal;
 				STRIP_INSTALLED_PRODUCT = YES;
