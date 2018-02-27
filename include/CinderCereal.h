@@ -31,6 +31,7 @@
 #include "cinder/Color.h"
 #include "cinder/Rect.h"
 #include "cinder/Filesystem.h"
+#include <cereal/cereal.hpp>
 
 #if ! defined( CINDER_CEREAL_NVP )
 #define CINDER_CEREAL_NVP 1
